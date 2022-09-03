@@ -6,7 +6,7 @@ function newAssignment() {
   input.value = '';
 }
 
-function selectssignment(event) {
+function selectAssignment(event) {
   const list = document.getElementsByTagName('li');
   const target = event.target;
   for (let index = 0; index < list.length; index += 1) {
@@ -35,7 +35,6 @@ function deleteFinished() {
   const list = document.getElementsByTagName('li');
   if (list) {
     Array.from(list).forEach((element) => {
-      console.log(element.classList.value);
       if (element.classList.value.includes('completed')) {
         element.remove();
       }
@@ -55,7 +54,6 @@ function save() {
     item.class = list[index].classList.value;
     saveList.push(item);
   }
-  console.log(saveList);
   localStorage.setItem('listAssignment', JSON.stringify(saveList));
 }
 
@@ -69,6 +67,36 @@ function reloadAssignment() {
       list.appendChild(item).innerText = obj[index].text;
       item.classList.value = obj[index].class;
     }
+  }
+}
+
+function moveUp() {
+  const list = document.getElementsByTagName('li');
+  let target = '';
+  let position = 0;
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      target = list[index];
+      position = index;
+    }
+  }
+  if (position > 0 && target !== '') {
+    target.parentNode.insertBefore(target, target.previousElementSibling);
+  }
+}
+function moveDown() {
+  const list = document.getElementsByTagName('li');
+  let target = '';
+  let position = 0;
+  let length = list.length;
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      target = list[index];
+      position = index + 1;
+    }
+  }
+  if (position < length && target !== '') {
+    target.parentNode.insertBefore(target.nextElementSibling, target);
   }
 }
 

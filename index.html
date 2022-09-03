@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/62e43a72a9.js"></script>
   </head>
   <body>
     <header>Minha Lista de Tarefas</header>
@@ -19,9 +20,11 @@
         <button id="apaga-tudo" onclick="clearList()">Apagar tudo</button>
         <button id="remover-finalizados" onclick="deleteFinished()">Apagar Finalizados</button>
         <button id="salvar-tarefas" onclick="save()">Salvar Lista</button>
+        <button id="mover-cima" class="fa fa-arrow-up" onclick="moveUp()"></button>
+        <button id="mover-baixo" class="fa fa-arrow-down" onclick="moveDown()"></button>
       </div>
       
-      <ol id="lista-tarefas" onclick="selectssignment(event)" ondblclick="completed(event)">       
+      <ol id="lista-tarefas" onclick="selectAssignment(event)" ondblclick="completed(event)">       
       </ol>
     </main>
     <script src="script.js" defer></script>
