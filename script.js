@@ -42,3 +42,36 @@ function deleteFinished() {
     });
   }
 }
+
+function save() {
+  const saveList = [];
+  const list = document.getElementsByTagName('li');
+  for (let index = 0; index < list.length; index += 1) {
+    const item = {
+      text: '',
+      class: '',
+    };
+    item.text = list[index].innerText;
+    item.class = list[index].classList.value;
+    saveList.push(item);
+  }
+  console.log(saveList);
+  localStorage.setItem('listAssignment', JSON.stringify(saveList));
+}
+
+function reloadAssignment() {
+  const text = localStorage.getItem('listAssignment');
+  if (text) {
+    const obj = JSON.parse(text);
+    const list = document.getElementById('lista-tarefas');
+    for (let index = 0; index < obj.length; index += 1) {
+      const item = document.createElement('li');
+      list.appendChild(item).innerText = obj[index].text;
+      item.classList.value = obj[index].class;
+    }
+  }
+}
+
+window.onload = function load() {
+  reloadAssignment();
+};
