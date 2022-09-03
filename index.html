@@ -16,6 +16,8 @@
       <div>
         <input id="texto-tarefa" type="text">
         <button id="criar-tarefa" onclick="newAssignment(event)">Adicionar</button>
+        <button id="apaga-tudo" onclick="clearList()">Apagar tudo</button>
+        <button id="remover-finalizados" onclick="deleteFinished()">Apagar Finalizados</button>
       </div>
       
       <ol id="lista-tarefas" onclick="selectssignment(event)" ondblclick="completed(event)">       

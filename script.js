@@ -17,8 +17,28 @@ function selectssignment(event) {
   target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function completed(event) {  
+function completed(event) {
   const target = event.target;
-  console.log(event.target.classList);
   target.classList.toggle('completed');
+}
+
+function clearList() {
+  const list = document.getElementsByTagName('li');
+  if (list) {
+    Array.from(list).forEach((element) => {
+      element.remove();
+    });
+  }
+}
+
+function deleteFinished() {
+  const list = document.getElementsByTagName('li');
+  if (list) {
+    Array.from(list).forEach((element) => {
+      console.log(element.classList.value);
+      if (element.classList.value.includes('completed')) {
+        element.remove();
+      }
+    });
+  }
 }
