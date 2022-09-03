@@ -1,3 +1,5 @@
+const colorSelect = 'rgb(128, 128, 128)';
+
 function newAssignment() {
   const input = document.getElementById('texto-tarefa');
   const list = document.getElementById('lista-tarefas');
@@ -8,18 +10,18 @@ function newAssignment() {
 
 function selectAssignment(event) {
   const list = document.getElementsByTagName('li');
-  const target = event.target;
+  const target = event.target.style;
   for (let index = 0; index < list.length; index += 1) {
-    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (list[index].style.backgroundColor === colorSelect) {
       list[index].style.backgroundColor = '';
     }
   }
-  target.style.backgroundColor = 'rgb(128, 128, 128)';
+  target.backgroundColor = colorSelect;
 }
 
-function completed(event) {
-  const target = event.target;
-  target.classList.toggle('completed');
+function completed(event) { // eslint-disable-line no-unused-vars
+  const target = event.target.classList;
+  target.toggle('completed');
 }
 
 function clearList() {
@@ -75,7 +77,7 @@ function moveUp() {
   let target = '';
   let position = 0;
   for (let index = 0; index < list.length; index += 1) {
-    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (list[index].style.backgroundColor === colorSelect) {
       target = list[index];
       position = index;
     }
@@ -88,14 +90,14 @@ function moveDown() {
   const list = document.getElementsByTagName('li');
   let target = '';
   let position = 0;
-  let length = list.length;
+  const numberlength = list.length;
   for (let index = 0; index < list.length; index += 1) {
-    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (list[index].style.backgroundColor === colorSelect) {
       target = list[index];
       position = index + 1;
     }
   }
-  if (position < length && target !== '') {
+  if (position < numberlength && target !== '') {
     target.parentNode.insertBefore(target.nextElementSibling, target);
   }
 }
@@ -104,7 +106,7 @@ function remove() {
   const list = document.getElementsByTagName('li');
   let target = '';
   for (let index = 0; index < list.length; index += 1) {
-    if (list[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (list[index].style.backgroundColor === colorSelect) {
       target = list[index];
     }
   }
