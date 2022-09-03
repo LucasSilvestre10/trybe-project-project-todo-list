@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>Minha Lista de Tarefas</header>
@@ -17,7 +18,7 @@
         <button id="criar-tarefa" onclick="newAssignment(event)">Adicionar</button>
       </div>
       
-      <ol id="lista-tarefas" onclick="selectssignment(event)">       
+      <ol id="lista-tarefas" onclick="selectssignment(event)" ondblclick="completed(event)">       
       </ol>
     </main>
     <script src="script.js" defer></script>

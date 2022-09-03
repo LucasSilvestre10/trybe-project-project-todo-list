@@ -16,3 +16,9 @@ function selectssignment(event) {
   }
   target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
+function completed(event) {  
+  const target = event.target;
+  console.log(event.target.classList);
+  target.classList.toggle('completed');
+}
